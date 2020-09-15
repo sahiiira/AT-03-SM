@@ -1,34 +1,26 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
 export default class Initial extends React.Component {
   render() {
     return (
       <View style={styles.container}>
 
-        <View style={styles.logoContainer}>
-          <Image
-            style={styles.logoImg}
-            source={require("../assets/icon.png")}
-          />
-          <Text style={styles.text}>Calculadora de IMC</Text>
+        <Text style={styles.text}>Resultado</Text>
+
+        <Text style={styles.subtitle}>Seu IMC</Text>
+        <View style={styles.resultBox}>
+          <View style={styles.imcBox}>
+            <Text style={styles.imcText}>17.9</Text>
+          </View>
+          <Text style={styles.resultText}>Você está abaixo do peso</Text>
         </View>
 
-        <Image
-          style={styles.img}
-          source={require("../assets/initialImg.png")}
-        />
-
-        <View
-          style={styles.buttonView}>
-          <TouchableOpacity
-            activeOpacity={0.5}
-            style={styles.button}
-            onPress={() => this.props.navigation.navigate('Input')}
-          >
-            <Icon name="keyboard-arrow-down" size={40} style={styles.buttonText}></Icon>
-          </TouchableOpacity>
+        <Text style={styles.subtitle}>IMC ideal</Text>
+        <View style={styles.resultBox}>
+          <View style={styles.idealBox}>
+            <Text style={styles.imcText}>18.5 - 24,9</Text>
+          </View>
         </View>
 
       </View>
@@ -41,39 +33,56 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
     alignItems: 'center',
-  },
-  logoContainer: {
-    width: '100%',
-    paddingTop: 64,
     paddingHorizontal: 32,
-    alignItems: 'center',
-  },
-  logoImg: {
-    width: 120,
-    resizeMode: 'contain',
-  },
-  img: {
-    width: '100%',
-    resizeMode: 'contain',
-    marginVertical: 16,
+    paddingVertical: 64,
   },
   text: {
+    marginVertical: '5%',
     fontWeight: 'bold',
     color: '#0000ff',
-    fontSize: 32,
+    fontSize: 60,
   },
-  buttonView: {
-    padding: 32,
-    marginBottom: 64,
-    marginHorizontal: 32,
+  subtitle: {
+    marginBottom: 16,
+    color: '#0000ff',
+    fontSize: 36,
+    marginTop: 40,
   },
-  button: {
-    padding: 12,
+  resultBox: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
+  },
+  imcBox: {
+    width: '50%',
+    aspectRatio: 1,
     backgroundColor: '#0000ff',
-    alignContent: 'center',
-    borderRadius: 50,
+    borderRadius: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  buttonText: {
+  imcText: {
     color: '#fff',
+    fontSize: 60,
+    fontWeight: 'bold',
+    margin: 12,
+  },
+  resultText: {
+    flex: 1,
+    color: '#0000ff',
+    fontSize: 32,
+    fontWeight: 'bold',
+    marginLeft: 12,
+  },
+  idealBox: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#0000ff',
+    borderRadius: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 });

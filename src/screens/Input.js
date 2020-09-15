@@ -35,6 +35,7 @@ export default class Initial extends React.Component {
           style={styles.textInput}
           placeholder="Ex: 50kg"
           placeholderTextColor="#0000ff"
+          keyboardType="number-pad"
           onChangeText={(val) => this.updateInputVal(val, 'peso')}
           value={this.state.peso}
         />
@@ -47,6 +48,7 @@ export default class Initial extends React.Component {
           style={styles.textInput}
           placeholder="Ex: 170cm"
           placeholderTextColor="#0000ff"
+          keyboardType="number-pad"
           onChangeText={(val) => this.updateInputVal(val, 'altura')}
           value={this.state.altura}
         />
@@ -69,7 +71,7 @@ export default class Initial extends React.Component {
         <TouchableOpacity
           activeOpacity={0.5}
           style={styles.button}
-          onPress={() => this.props.navigation.navigate('Output')}
+          onPress={() => this.props.navigation.replace('Output')}
         >
           <Icon name="done" size={40} style={styles.buttonText}></Icon>
         </TouchableOpacity>
