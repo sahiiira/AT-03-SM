@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity } from 'react-native';
 import { Picker } from '@react-native-community/picker';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class Initial extends React.Component {
 
@@ -68,11 +69,9 @@ export default class Initial extends React.Component {
         <TouchableOpacity
           activeOpacity={0.5}
           style={styles.button}
-        //onPress={() => this.props.navigation.navigate('Input')}
+          onPress={() => this.props.navigation.navigate('Output')}
         >
-          <Text style={styles.buttonText}>
-            Calcular
-          </Text>
+          <Icon name="done" size={40} style={styles.buttonText}></Icon>
         </TouchableOpacity>
 
       </KeyboardAvoidingView>
@@ -123,14 +122,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    paddingVertical: 12,
-    paddingHorizontal: 18,
+    padding: 12,
     backgroundColor: '#0000ff',
     alignContent: 'center',
-    borderRadius: 6,
+    borderRadius: 50,
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
   }
 });
