@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export default class Initial extends React.Component {
   render() {
@@ -26,9 +27,7 @@ export default class Initial extends React.Component {
             style={styles.button}
             onPress={() => this.props.navigation.navigate('Input')}
           >
-            <Text style={styles.buttonText}>
-              Iniciar
-          </Text>
+            <Icon name="keyboard-arrow-down" size={40} style={styles.buttonText}></Icon>
           </TouchableOpacity>
         </View>
 
@@ -69,14 +68,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 32,
   },
   button: {
-    paddingVertical: 12,
-    paddingHorizontal: 18,
+    padding: 12,
     backgroundColor: '#0000ff',
     alignContent: 'center',
-    borderRadius: 6,
+    borderRadius: 50,
   },
   buttonText: {
     color: '#fff',
-    fontSize: 16,
   }
 });

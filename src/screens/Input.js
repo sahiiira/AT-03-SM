@@ -9,8 +9,7 @@ export default class Initial extends React.Component {
     this.state = {
       peso: '',
       altura: '',
-      language: 'java',
-
+      idade: 'idade',
     }
   }
 
@@ -28,7 +27,7 @@ export default class Initial extends React.Component {
         </Text>
 
         <Text style={styles.subtext}>
-          Informe seu peso
+          Seu peso
         </Text>
 
         <TextInput
@@ -40,26 +39,41 @@ export default class Initial extends React.Component {
         />
 
         <Text style={styles.subtext}>
-          Informe sua altura
+          Sua altura
         </Text>
 
         <TextInput
           style={styles.textInput}
           placeholder="Ex: 170cm"
           placeholderTextColor="#0000ff"
-          onChangeText={(val) => this.updateInputVal(val, 'peso')}
-          value={this.state.peso}
+          onChangeText={(val) => this.updateInputVal(val, 'altura')}
+          value={this.state.altura}
         />
 
+        <Text style={styles.subtext}>
+          Sua idade
+        </Text>
+
         <Picker
-          selectedValue={this.state.language}
-          style={{ height: 50, width: 100 }}
+          selectedValue={this.state.idade}
+          style={styles.list}
           onValueChange={(itemValue, itemIndex) =>
-            this.setState({ language: itemValue })
+            this.setState({ idade: itemValue })
           }>
-          <Picker.Item label="Java" value="java" />
-          <Picker.Item label="JavaScript" value="js" />
+          <Picker.Item label="Criança" value="crianca" />
+          <Picker.Item label="Adulto" value="adulto" />
+          <Picker.Item label="Idoso" value="idoso" />
         </Picker>
+
+        <TouchableOpacity
+          activeOpacity={0.5}
+          style={styles.button}
+        //onPress={() => this.props.navigation.navigate('Input')}
+        >
+          <Text style={styles.buttonText}>
+            Calcular
+          </Text>
+        </TouchableOpacity>
 
       </KeyboardAvoidingView>
     );
@@ -73,12 +87,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     textAlign: 'center',
     fontWeight: 'bold',
     color: '#0000ff',
     fontSize: 32,
+    marginBottom: 64,
   },
   subtext: {
     textAlign: 'center',
@@ -90,6 +106,8 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 20,
     marginVertical: 12,
+    marginBottom: 32,
+
     width: '100%',
     backgroundColor: '#fff',
     color: '#0000ff',
@@ -97,5 +115,22 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 50,
     borderColor: '#0000ff'
+  },
+  list: {
+    width: '100%',
+    color: '#0000ff',
+    marginBottom: 32,
+    alignItems: 'center',
+  },
+  button: {
+    paddingVertical: 12,
+    paddingHorizontal: 18,
+    backgroundColor: '#0000ff',
+    alignContent: 'center',
+    borderRadius: 6,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
   }
 });
