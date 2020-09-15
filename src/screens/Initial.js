@@ -24,7 +24,7 @@ export default class Initial extends React.Component {
           <TouchableOpacity
             activeOpacity={0.5}
             style={styles.button}
-          //onPress={onPressLearnMore}
+            onPress={() => this.props.navigation.navigate('Input')}
           >
             <Text style={styles.buttonText}>
               Iniciar
