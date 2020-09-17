@@ -25,7 +25,7 @@ export default class Initial extends React.Component {
           <TouchableOpacity
             activeOpacity={0.5}
             style={styles.button}
-            onPress={() => this.props.navigation.replace('Input')}
+            onPress={() => this.props.navigation.navigate('Input')}
           >
             <Icon name="keyboard-arrow-down" size={40} style={styles.buttonText}></Icon>
           </TouchableOpacity>
