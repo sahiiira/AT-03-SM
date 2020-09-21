@@ -19,7 +19,7 @@ export default class Initial extends React.Component {
         <Text style={styles.subtitle}>IMC ideal</Text>
         <View style={styles.resultBox}>
           <View style={styles.idealBox}>
-            <Text style={styles.imcText}>18.5 - 24,9</Text>
+            <Text style={styles.imcText}>18.5 - 24.9</Text>
           </View>
         </View>
 
