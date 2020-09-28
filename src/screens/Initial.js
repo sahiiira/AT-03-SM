@@ -2,38 +2,38 @@ import * as React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-export default class Initial extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
+export default function Initial({ navigation }) {
 
-        <View style={styles.logoContainer}>
-          <Image
-            style={styles.logoImg}
-            source={require("../assets/icon.png")}
-          />
-          <Text style={styles.text}>Calculadora de IMC</Text>
-        </View>
+  return (
+    <View style={styles.container}>
 
+      <View style={styles.logoContainer}>
         <Image
-          style={styles.img}
-          source={require("../assets/initialImg.png")}
+          style={styles.logoImg}
+          source={require("../assets/icon.png")}
         />
-
-        <View
-          style={styles.buttonView}>
-          <TouchableOpacity
-            activeOpacity={0.5}
-            style={styles.button}
-            onPress={() => this.props.navigation.navigate('Input')}
-          >
-            <Icon name="keyboard-arrow-down" size={40} style={styles.buttonText}></Icon>
-          </TouchableOpacity>
-        </View>
-
+        <Text style={styles.text}>Calculadora de IMC</Text>
       </View>
-    );
-  }
+
+      <Image
+        style={styles.img}
+        source={require("../assets/initialImg.png")}
+      />
+
+      <View
+        style={styles.buttonView}>
+        <TouchableOpacity
+          activeOpacity={0.5}
+          style={styles.button}
+          onPress={() => navigation.navigate('Input')}
+        >
+          <Icon name="keyboard-arrow-down" size={40} style={styles.buttonText}></Icon>
+        </TouchableOpacity>
+      </View>
+
+    </View>
+  );
+
 }
 
 const styles = StyleSheet.create({
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    color: '#0000ff',
+    color: '#3A48EC',
     fontSize: 32,
   },
   buttonView: {
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   },
   button: {
     padding: 12,
-    backgroundColor: '#0000ff',
+    backgroundColor: '#3A48EC',
     alignContent: 'center',
     borderRadius: 50,
   },

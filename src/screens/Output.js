@@ -1,7 +1,21 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
-export default class Initial extends React.Component {
+export default class Output extends React.Component {
+
+  frase = () => {
+    var imc = this.props.route.params.imc;
+    if (imc < 18.5) {
+      return (<Text style={styles.resultText}>Você está abaixo do peso</Text>);
+    } else if (imc <= 24.9) {
+      return (<Text style={styles.resultText}>Você está no peso ideal</Text>);
+    } else if (imc <= 29.9) {
+      return (<Text style={styles.resultText}>Você possui sobrepeso</Text>);
+    } else if (imc > 29.9) {
+      return (<Text style={styles.resultText}>Você possui obesidade</Text>);
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -11,9 +25,9 @@ export default class Initial extends React.Component {
         <Text style={styles.subtitle}>Seu IMC</Text>
         <View style={styles.resultBox}>
           <View style={styles.imcBox}>
-            <Text style={styles.imcText}>17.9</Text>
+            <Text style={styles.imcText}>{this.props.route.params.imc}</Text>
           </View>
-          <Text style={styles.resultText}>Você está abaixo do peso</Text>
+          {this.frase()}
         </View>
 
         <Text style={styles.subtitle}>IMC ideal</Text>
@@ -39,12 +53,12 @@ const styles = StyleSheet.create({
   text: {
     marginVertical: '5%',
     fontWeight: 'bold',
-    color: '#0000ff',
+    color: '#3A48EC',
     fontSize: 60,
   },
   subtitle: {
     marginBottom: 16,
-    color: '#0000ff',
+    color: '#3A48EC',
     fontSize: 36,
     marginTop: 40,
   },
@@ -59,7 +73,7 @@ const styles = StyleSheet.create({
   imcBox: {
     width: '50%',
     aspectRatio: 1,
-    backgroundColor: '#0000ff',
+    backgroundColor: '#3A48EC',
     borderRadius: 32,
     alignItems: 'center',
     justifyContent: 'center',
@@ -72,7 +86,7 @@ const styles = StyleSheet.create({
   },
   resultText: {
     flex: 1,
-    color: '#0000ff',
+    color: '#3A48EC',
     fontSize: 32,
     fontWeight: 'bold',
     marginLeft: 12,
@@ -80,7 +94,7 @@ const styles = StyleSheet.create({
   idealBox: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#0000ff',
+    backgroundColor: '#3A48EC',
     borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'center',
